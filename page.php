@@ -16,7 +16,6 @@
  */
 
 get_header();
-get_template_part('template-parts/content','top-image');
 ?>
 <div id="primary" class="content-area">
 	<main id="main" class="site-main" role="main">
@@ -27,14 +26,14 @@ get_template_part('template-parts/content','top-image');
 			/* Start the Loop */
 			while ( have_posts() ) { 
 				the_post();
-					echo '<h1>'.get_the_title().'</h1>';
+					the_content();
 
 				}
 			}
 			?>
 		</main>
 	</div>
-
+hej
 	<?php
 	get_footer();
 	?>

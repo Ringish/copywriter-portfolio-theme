@@ -1,1 +1,6 @@
-console.log(1);
+( function ( $ ) {
+    'use strict';
+    $( document ).ready( function () {
+        console.log( 'working!' )
+    })
+} ( jQuery ) );
