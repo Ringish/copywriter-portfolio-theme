@@ -2,6 +2,9 @@
 // Custom logo
 add_theme_support( 'custom-logo' );
 
+// Featured image
+add_theme_support( 'post-thumbnails' ); 
+
 // Customizer
 require get_template_directory() . '/inc/customizer.php';
 

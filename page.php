@@ -19,21 +19,26 @@ get_header();
 ?>
 <div id="primary" class="content-area">
 	<main id="main" class="site-main" role="main">
-
+		<?php
+		$icon = get_post_meta(get_the_id(),'ikon',true );
+		$bg = get_post_meta(get_the_id(),'farg',true );
+		?>
+		<header class="page-header" style="background:<?php echo $bg; ?>">
+		<h1><i class="fa <?php echo $icon; ?>"></i><?php the_title(); ?></h1>
+		</header>
 		<?php
 		if ( have_posts() ) {
 
 			/* Start the Loop */
 			while ( have_posts() ) { 
 				the_post();
-					the_content();
+				the_content();
 
-				}
 			}
-			?>
-		</main>
-	</div>
-hej
-	<?php
-	get_footer();
-	?>
+		}
+		?>
+	</main>
+</div>
+<?php
+get_footer();
+?>

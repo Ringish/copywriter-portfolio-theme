@@ -19,6 +19,15 @@ function copywriter_customizer($wp_customize) {
 			'section'  => 'box_'.$i,
 			'settings' => 'box_'.$i.'_heading',
 			) ) );
+		$wp_customize->add_setting( 'box_'.$i.'_link' , array(
+			'default'   => '#',
+			'transport' => 'refresh',
+			) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'box_'.$i.'_link', array(
+			'label'    => __( 'Box '.$i.' link', 'copywriter' ),
+			'section'  => 'box_'.$i,
+			'settings' => 'box_'.$i.'_link',
+			) ) );
 
 		$wp_customize->add_setting( 'box_'.$i.'_icon', array(
 			'default' => 'fa-facebook',

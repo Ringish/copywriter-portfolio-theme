@@ -1,6 +1,8 @@
 ( function ( $ ) {
     'use strict';
     $( document ).ready( function () {
-        console.log( 'working!' )
+        $('.nav-toggler').on('click',function() {
+        	$('.navigation').toggleClass('open');
+        });
     })
 } ( jQuery ) );

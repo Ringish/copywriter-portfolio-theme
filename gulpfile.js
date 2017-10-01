@@ -8,6 +8,10 @@ var imagemin = require('gulp-imagemin'),
 cache = require('gulp-cache');
 var minifycss = require('gulp-minify-css');
 var sass = require('gulp-sass');
+var sftp = require('gulp-sftp');
+var changed = require('gulp-changed');
+var newer = require('gulp-newer');
+var cache = require('gulp-cached');
 
 
 
@@ -46,7 +50,25 @@ gulp.task('scripts', function(){
   .pipe(gulp.dest('dist/scripts/'))
 });
 
+gulp.task('deploy', function () {
+
+  return gulp.src([
+    '!git/**',
+    '!node_modules/**',
+    '!inc/**',
+    '**/*'
+    ])
+  .pipe(cache('test'))
+  .pipe(sftp({
+    host: '188.166.115.151',
+    user: 'ftpuser',
+    pass: 'SMRxw89',
+    remotePath: 'elinternander/wp-content/themes/copywriter-portfolio-theme'
+  }));
+});
+
 gulp.task('default', function(){
   gulp.watch("src/styles/**/*.scss", ['styles']);
   gulp.watch("src/scripts/**/*.js", ['scripts']);
+  gulp.watch("**/*",['deploy']);
 });

@@ -28,6 +28,7 @@ get_header();
 				the_post();
 
 					echo '<h1>'.get_the_title().'</h1>';
+					the_content();
 
 				}
 			}

@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+body {
+	font-family: 'Quicksand', sans-serif;
+	font-size:18px;
+}
+
+h1 {
+	letter-spacing:2px;
+	i {
+		margin-right:10px;
+	}
+	font-size:30px;
+	margin:0;
+}
+h2 {
+	margin:0;
+}
+
+a {
+	color: $pink;
+	transition:.3s;
+	&:hover {
+		opacity: .8;
+	}
+}
