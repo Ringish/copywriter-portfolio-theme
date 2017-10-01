@@ -1,12 +1,12 @@
 <?php
 get_header();
 ?>
-hej
 <?php
 while (have_posts()) {
 	the_post();
 	the_content();
 }
+the_posts_pagination();
 ?>
 <?php
 get_footer();

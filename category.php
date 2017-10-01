@@ -40,22 +40,25 @@ get_header();
 			/* Start the Loop */
 			while ( have_posts() ) { 
 				the_post();
-				echo '<article class="post"><div class="post-content">';
-				echo '<div class="img-holder">';
-				the_post_thumbnail('large');
+				?>
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>><div class="post-content">
+					<?php
+					echo '<div class="img-holder">';
+					the_post_thumbnail('large');
+					echo '</div>';
+					echo '<a href="'.get_permalink().'" class="post-title" style="background:'.$color.';">';
+					echo '<h2>'.get_the_title().'</h2>';
+					echo '</a>';
+					echo '</div></article>';
+
+				}
 				echo '</div>';
-				echo '<a href="'.get_permalink().'" class="post-title" style="background:'.$color.';">';
-				echo '<h2>'.get_the_title().'</h2>';
-				echo '</a>';
-				echo '</div></article>';
-
+				the_posts_pagination();
 			}
-			echo '</div>';
-		}
-		?>
-	</main>
-</div>
+			?>
+		</main>
+	</div>
 
-<?php
-get_footer();
-?>
+	<?php
+	get_footer();
+	?>

@@ -2,12 +2,12 @@
 define( 'O2_DIRECTORY', get_template_directory() . '/inc/o2/' );
 define( 'O2_DIRECTORY_URI', get_template_directory_uri() . '/inc/o2/' );
 require get_template_directory() . '/inc/o2/controls/icon-picker/icon-picker-control.php';
-function copywriter_customizer($wp_customize) {
+function cpt_customizer($wp_customize) {
 
 
 	for ($i=1; $i <= 5; $i++) { 
 		$wp_customize->add_section( 'box_'.$i , array(
-			'title'    => __( 'Box '.$i, 'copywriter' ),
+			'title'    => __( 'Box', 'copywriter-portfolio-theme' ).' '.$i,
 			'priority' => 30
 			) );
 		$wp_customize->add_setting( 'box_'.$i.'_heading' , array(
@@ -15,7 +15,7 @@ function copywriter_customizer($wp_customize) {
 			'transport' => 'refresh',
 			) );
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'box_'.$i.'_heading', array(
-			'label'    => __( 'Box '.$i.' heading', 'copywriter' ),
+			'label'    => __( 'Box heading', 'copywriter-portfolio-theme' ).' '.$i,
 			'section'  => 'box_'.$i,
 			'settings' => 'box_'.$i.'_heading',
 			) ) );
@@ -24,7 +24,7 @@ function copywriter_customizer($wp_customize) {
 			'transport' => 'refresh',
 			) );
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'box_'.$i.'_link', array(
-			'label'    => __( 'Box '.$i.' link', 'copywriter' ),
+			'label'    => __( 'Box link', 'copywriter-portfolio-theme' ).' '.$i,
 			'section'  => 'box_'.$i,
 			'settings' => 'box_'.$i.'_link',
 			) ) );
@@ -35,8 +35,8 @@ function copywriter_customizer($wp_customize) {
 			));
 
 		$wp_customize->add_control(new O2_Customizer_Icon_Picker_Control($wp_customize, 'box_'.$i.'_icon', array(
-			'label' => __('Icons', 'textdomain'),
-			'description' => __('Choose an icon', 'textdomain'),
+			'label' => __('Icons', 'copywriter-portfolio-theme'),
+			'description' => __('Choose an icon', 'copywriter-portfolio-theme'),
 			'iconset' => 'fa',
 			'section' => 'box_'.$i,
 			'priority' => 5,
@@ -54,7 +54,7 @@ function copywriter_customizer($wp_customize) {
 				$wp_customize, 
 				'box_'.$i.'_bgcolor', 
 				array(
-					'label'      => __( 'Background color', 'copywriter' ),
+					'label'      => __( 'Background color', 'copywriter-portfolio-theme' ),
 					'section'    => 'box_'.$i,
 					'settings'   => 'box_'.$i.'_bgcolor',
 					) ) 
@@ -90,13 +90,13 @@ function copywriter_customizer($wp_customize) {
 		) );
 
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'top_text_heading', array(
-		'label'    => __( 'Top text heading', 'copywriter' ),
+		'label'    => __( 'Top text heading', 'copywriter-portfolio-theme' ),
 		'section'  => 'top_text',
 		'settings' => 'top_text_heading',
 		) ) );
 
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'top_text_content', array(
-		'label'    => __( 'Top text', 'copywriter' ),
+		'label'    => __( 'Top text', 'copywriter-portfolio-theme' ),
 		'section'  => 'top_text',
 		'settings' => 'top_text_content',
 		'type'	   => 'textarea'
@@ -104,7 +104,7 @@ function copywriter_customizer($wp_customize) {
 
 		// Posts section
 	$wp_customize->add_section( 'posts' , array(
-		'title'    => __( 'Posts', 'copywriter' ),
+		'title'    => __( 'Posts', 'copywriter-portfolio-theme' ),
 		'priority' => 35
 		) );   
 
@@ -128,19 +128,19 @@ function copywriter_customizer($wp_customize) {
 	}
 
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'post_heading', array(
-		'label'    => __( 'Posts heading', 'copywriter' ),
+		'label'    => __( 'Posts heading', 'copywriter-portfolio-theme' ),
 		'section'  => 'posts',
 		'settings' => 'posts_heading',
 		) ) );
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'posts_post_type', array(
-		'label'    => __( 'Post type', 'copywriter' ),
+		'label'    => __( 'Post type', 'copywriter-portfolio-theme' ),
 		'section'  => 'posts',
 		'settings' => 'posts_post_type',
 		'type'	   => 'select',
 		'choices'  => $post_types
 		) ) );
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'posts_number', array(
-		'label'    => __( 'Number of posts', 'copywriter' ),
+		'label'    => __( 'Number of posts', 'copywriter-portfolio-theme' ),
 		'section'  => 'posts',
 		'settings' => 'posts_number',
 		'type'	   => 'select',
@@ -149,5 +149,5 @@ function copywriter_customizer($wp_customize) {
 
 
 }
-add_action( 'customize_register', 'copywriter_customizer' );
+add_action( 'customize_register', 'cpt_customizer' );
 ?>

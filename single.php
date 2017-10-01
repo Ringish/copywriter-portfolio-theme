@@ -27,15 +27,23 @@ get_header();
 			while ( have_posts() ) { 
 				the_post();
 
-					echo '<h1>'.get_the_title().'</h1>';
-					the_content();
+				echo '<h1>'.get_the_title().'</h1>';
+				the_content();
 
+				echo cpt_entry_footer();
+
+					// If comments are open or we have at least one comment, load up the comment template.
+				if ( comments_open() || get_comments_number() ) {
+					comments_template();
 				}
-			}
-			?>
-		</main>
-	</div>
 
-	<?php
-	get_footer();
-	?>
+			}
+			 wp_link_pages();
+		}
+		?>
+	</main>
+</div>
+
+<?php
+get_footer();
+?>
