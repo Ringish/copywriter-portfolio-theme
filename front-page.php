@@ -40,29 +40,16 @@ get_header();
 
 			?>
 		</div>
+		<h1><?php the_title(); ?></h1>
 		<?php
-		$args = array(
-			'post__in'     => array(92,112,196),
-			);
-		
-		$query = new WP_Query( $args );
-		$color = "#eabcb6";
-		if ( $query->have_posts() ) {
-			echo '<div class="posts">';
+		if ( have_posts() ) {
+
 			/* Start the Loop */
-			while ( $query->have_posts() ) { 
-				$query->the_post();
-				echo '<article class="post"><div class="post-content">';
-				echo '<div class="img-holder">';
-				the_post_thumbnail('large');
-				echo '</div>';
-				echo '<a href="'.get_permalink().'" class="post-title" style="background:'.$color.';">';
-				echo '<h2>'.get_the_title().'</h2>';
-				echo '</a>';
-				echo '</div></article>';
+			while ( have_posts() ) { 
+				the_post();
+				the_content();
 
 			}
-			echo '</div>';
 		}
 		?>
 	</main>

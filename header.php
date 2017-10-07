@@ -17,7 +17,7 @@
 			?>
 			<span class="site-name"><?php bloginfo('name'); ?></span>
 
-		<nav class="navigation">
+		<nav class="navigation header-navigation">
 		<button class="nav-toggler"></button>
 			<?php
 		   /**

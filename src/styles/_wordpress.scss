@@ -1,27 +1,30 @@
 .wp-caption {
-	font-weight:900;
+	display:block;
 }
 .wp-caption-text {
-	font-weight:900;
+	display:block;
 }
 .sticky {
-	font-weight:900;
+	display:block;
 }
 .screen-reader-text {
-	font-weight:900;
+	display:none;
 }
 .gallery-caption {
-	font-weight:900;
+	display:block;
 }
 .bypostauthor {
-	font-weight:900;
+	display:block;
 }
 .alignright {
-	font-weight:900;
+	display:block;
+	float:right;
 }
 .alignleft {
-	font-weight:900;
+	display:block;
+	float:left;
 }
 .aligncenter {
-	font-weight:900;
+	margin:0 auto;
+	display:block;
 }
