@@ -1,19 +1,7 @@
 
 <?php
 /**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage copywriter-portfolio-theme
- * @since 1.0
- * @version 1.0
+ * The index template file
  */
 
 get_header(); 
@@ -37,8 +25,8 @@ get_header();
 					echo '<div class="img-holder">';
 					the_post_thumbnail('large');
 					echo '</div>';
-					echo '<a href="'.get_permalink().'" class="read-more">';
-					echo '<h2>'.__('Read more','copywriter-portfolio-theme').'</h2>';
+					echo '<a href="'.esc_url(get_permalink()).'" class="read-more">';
+					echo '<h2>'.__('Read more','copywriter-portfolio').'</h2>';
 					echo '</a>';
 					echo '</div></article>';
 

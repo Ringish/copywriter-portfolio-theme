@@ -1,22 +1,6 @@
 <?php
 /**
  * The template for displaying comments
- *
- * This is the template that displays the area of the page that contains both the current comments
- * and the comment form.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage copywriter-portfolio-theme
- * @since 1.0
- * @version 1.0
- */
-
-/*
- * If the current post is protected by a password and
- * the visitor has not yet entered the password we will
- * return early without loading the comments.
  */
 if ( post_password_required() ) {
 	return;
@@ -33,7 +17,7 @@ if ( post_password_required() ) {
 			$comments_number = get_comments_number();
 			if ( '1' === $comments_number ) {
 				/* translators: %s: post title */
-				printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'copywriter-portfolio-theme' ), get_the_title() );
+				printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'copywriter-portfolio' ), esc_html(get_the_title()) );
 			} else {
 				printf(
 					/* translators: 1: number of comments, 2: post title */
@@ -42,10 +26,10 @@ if ( post_password_required() ) {
 						'%1$s Replies to &ldquo;%2$s&rdquo;',
 						$comments_number,
 						'comments title',
-						'copywriter-portfolio-theme'
+						'copywriter-portfolio'
 					),
 					number_format_i18n( $comments_number ),
-					get_the_title()
+					esc_html(get_the_title())
 				);
 			}
 			?>
@@ -57,21 +41,21 @@ if ( post_password_required() ) {
 					'avatar_size' => 100,
 					'style'       => 'ol',
 					'short_ping'  => true,
-					'reply_text'  =>  __( 'Reply', 'copywriter-portfolio-theme' ),
+					'reply_text'  =>  __( 'Reply', 'copywriter-portfolio' ),
 				) );
 			?>
 		</ol>
 
 		<?php the_comments_pagination( array(
-			'prev_text' => '<span class="screen-reader-text">' . __( 'Previous', 'copywriter-portfolio-theme' ) . '</span>',
-			'next_text' => '<span class="screen-reader-text">' . __( 'Next', 'copywriter-portfolio-theme' ) . '</span>'));
+			'prev_text' => '<span class="screen-reader-text">' . __( 'Previous', 'copywriter-portfolio' ) . '</span>',
+			'next_text' => '<span class="screen-reader-text">' . __( 'Next', 'copywriter-portfolio' ) . '</span>'));
 
 	endif; // Check for have_comments().
 
 	// If comments are closed and there are comments, let's leave a little note, shall we?
 	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
 
-		<p class="no-comments"><?php _e( 'Comments are closed.', 'copywriter-portfolio-theme' ); ?></p>
+		<p class="no-comments"><?php _e( 'Comments are closed.', 'copywriter-portfolio' ); ?></p>
 	<?php
 	endif;
 
